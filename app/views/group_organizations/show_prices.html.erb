@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Model Type Prices</h1>
+
+<%= render 'model_type_form', group_organization: @group_organization %>
+
+<% unless @price_info.flatten.empty? %>
+  <table>
+    <thead>
+    <tr>
+      <th>SI.No</th>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @price_info.flatten.each_with_index do |org_price,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= org_price[:name] %></td>
+        <td><%= org_price[:price] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

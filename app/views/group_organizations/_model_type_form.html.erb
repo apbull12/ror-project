@@ -1,0 +1,22 @@
+<%= form_with(model: @group_organization, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :model_type %>
+    <%= select_tag 'model_type', options_for_select(%w[Flexible Fixed Prestige], "Flexible") %>
+  </div>
+
+  <div class="field">
+    <%= form.label :base_price %>
+    <%= form.number_field :base_price %>
+  </div>
+
+<!--  <div class="actions">-->
+    <%#= form.button :submit,:class => 'btn btn-md btn-success', :formtarget => "_blank" do %>
+<!--      <i class='fa fa fa-plus'></i> submit-->
+    <%# end %>
+<!--  </div>-->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

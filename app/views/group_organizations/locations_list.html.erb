@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @locations.flatten.each do |location| %>
+    <tr>
+      <td><%= location.name %></td>
+      <td><%= location.address %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
