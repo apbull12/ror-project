@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  include GroupOrganizationsHelper
+  include OrganizationsHelper
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
   # GET /organizations

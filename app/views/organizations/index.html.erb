@@ -22,8 +22,8 @@
         <td><%= organization.public_name %></td>
         <td><%= organization.organization_type %></td>
         <td><%= organization.pricing_policy %></td>
-        <td><%= organization.parent_org_id %></td>
-        <td><%= organization.group_organization_id %></td>
+        <td><%= organization_info(organization.parent_org_id) %></td>
+        <td><%= group_org_name(organization.group_organization_id) %></td>
         <td><%= link_to 'Show', organization %></td>
         <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
         <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>

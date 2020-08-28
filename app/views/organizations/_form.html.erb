@@ -24,11 +24,13 @@
   <div class="field">
     <%= form.label :organization_type %>
     <%= form.text_field :organization_type %>
+    <%#= select_tag :organization_type, options_for_select(%w[Show_room Service Dealer], "Show_room") %>
   </div>
 
   <div class="field">
     <%= form.label :pricing_policy %>
     <%= form.text_field :pricing_policy %>
+    <%#= select_tag :pricing_policy, options_for_select(%w[Flexible Fixed Prestige], "Flexible") %>
   </div>
 
   <div class="field">

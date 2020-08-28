@@ -21,4 +21,8 @@ module OrganizationsHelper
     end
     { name: organization.name,price: model_type_price }
   end
+
+  def organization_info(id)
+    Organization.find_by_id(id).name if id.present?
+  end
 end
