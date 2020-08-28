@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Group Organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Organization code</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_organizations.each do |group_organization| %>
+      <tr>
+        <td><%= group_organization.name %></td>
+        <td><%= group_organization.organization_code %></td>
+        <td><%= country_name(group_organization.country_id) %></td>
+        <td><%= link_to 'Show', group_organization %></td>
+        <td><%= link_to 'Edit', edit_group_organization_path(group_organization) %></td>
+        <td><%= link_to 'Destroy', group_organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group Organization', new_group_organization_path %>

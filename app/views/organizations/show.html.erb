@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <strong>Public name:</strong>
+  <%= @organization.public_name %>
+</p>
+
+<p>
+  <strong>organization_type:</strong>
+  <%= @organization.organization_type %>
+</p>
+
+<p>
+  <strong>Pricing policy:</strong>
+  <%= @organization.pricing_policy %>
+</p>
+
+<p>
+  <strong>Parent org:</strong>
+  <%= @organization.parent_org_id %>
+</p>
+
+<p>
+  <strong>Group organization:</strong>
+  <%= @organization.group_organization_id %>
+</p>
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>

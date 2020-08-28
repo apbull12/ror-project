@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group_organization.name %>
+</p>
+
+<p>
+  <strong>Organization code:</strong>
+  <%= @group_organization.organization_code %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= country_name(@group_organization.country_id)%>
+</p>
+
+<%= link_to 'Edit', edit_group_organization_path(@group_organization) %> |
+<%= link_to 'Back', group_organizations_path %>
