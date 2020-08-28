@@ -1,3 +1,4 @@
+require_relative '../services/calculate_price.rb'
 class GroupOrganizationsController < ApplicationController
   before_action :set_group_organization, only: [:show, :edit, :update, :destroy]
   include CountriesHelper
@@ -83,7 +84,7 @@ class GroupOrganizationsController < ApplicationController
     organization_ids = GroupOrganization.find_by_id(params[:group_organization_id]
     ).organizations.where(pricing_policy: params[:model_type]).pluck(:id)
     base_price = params[:base_price].to_i
-    @price_info << organization_ids.map {|id| calculate_org_price(id,base_price) }
+    @price_info << organization_ids.map {|id| CalculatePrice.call(id,base_price) }
     render template: 'group_organizations/show_prices'
   end
 
