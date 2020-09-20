@@ -27,12 +27,12 @@ class CalculatePrice
       ).xpath('//pubDate').count
       model_type_price = @base_price + margin
     end
-    present_results(model_type_price)
+    present_result(model_type_price)
   end
 
   private
 
-  def present_results(model_type_price)
+  def present_result(model_type_price)
     { name: @organization.name, price: model_type_price }
   end
 end
