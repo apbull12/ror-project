@@ -8,15 +8,15 @@ class CalculatePrice
   end
 
   def initialize(organization_id,base_price)
-    @organization_id = organization_id
+    @organization = Organization.find_by_id(organization_id) if organization_id.present?
     @base_price = base_price
   end
 
   def calculate
-    organization = Organization.find_by_id(@organization_id)
-    case organization.pricing_policy
+    case @organization.pricing_policy
     when 'Flexible'
-      margin = Nokogiri::HTML(open('http://in.reuters.com')).text.gsub(/[^[:word:]]+/, " ").scan(/a/).count
+      margin = Nokogiri::HTML(open('http://in.reuters.com')
+      ).text.gsub(/[^[:word:]]+/, " ").scan(/a/).count
       model_type_price = @base_price + (margin/100)
     when 'Fixed'
       margin = Nokogiri::HTML(open('https://developer.github.com/v3/#http-redirects')
@@ -27,6 +27,12 @@ class CalculatePrice
       ).xpath('//pubDate').count
       model_type_price = @base_price + margin
     end
-    { name: organization.name, price: model_type_price }
+    present_results(model_type_price)
+  end
+
+  private
+
+  def present_results(model_type_price)
+    { name: @organization.name, price: model_type_price }
   end
 end
